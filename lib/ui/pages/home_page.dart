@@ -15,8 +15,10 @@ class HomePage extends StatelessWidget {
         shape: const CircularNotchedRectangle(),
         clipBehavior: Clip.antiAlias,
         notchMargin: 6,
+        elevation: 0,
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
+          backgroundColor: whiteColor,
           elevation: 0,
           selectedItemColor: blueColor,
           unselectedItemColor: blackColor,

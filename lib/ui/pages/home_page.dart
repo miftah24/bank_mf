@@ -6,6 +6,7 @@ import 'package:bank_mf/ui/widgets/home_service_item.dart';
 import 'package:bank_mf/ui/widgets/home_tips_item.dart';
 import 'package:bank_mf/ui/widgets/home_user_item.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

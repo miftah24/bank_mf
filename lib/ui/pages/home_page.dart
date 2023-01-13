@@ -65,6 +65,7 @@ class HomePage extends StatelessWidget {
       ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
+          backgroundColor: purpleColor,
           child: Image.asset(
           'assets/ic_plus_circle.png',
           width: 24,
@@ -76,8 +77,9 @@ class HomePage extends StatelessWidget {
         horizontal: 24,
       ),
       children: [
-        buildProfile()
-      ],
+        buildProfile(),
+        buildWalletCard(),
+       ],
       ),
     );
   }
@@ -87,8 +89,10 @@ class HomePage extends StatelessWidget {
         top: 40,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Howdy,',
@@ -107,6 +111,93 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ],
+          ),
+          Container(
+            width: 60,
+            height: 60,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(
+                  'assets/img_profile.png',
+                  ),
+                ),
+            ),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                width: 16,
+                height: 16,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: whiteColor,
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.check_circle,
+                    color: greenColor,
+                    size: 14,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+  
+  Widget buildWalletCard() {
+    return Container(
+      width: double.infinity,
+      height: 220,
+      margin: const EdgeInsets.only(
+        top: 30,
+      ),
+      padding:  const EdgeInsets.all(30),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(28),
+        image: const DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            'assets/img_bg_card.png',
+            ),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Shayna Hanna',
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+            ),
+          ),
+          const SizedBox(
+            height: 28,
+          ),
+          Text(
+            '**** **** **** 1280',
+            style: whiteTextStyle.copyWith(
+              fontSize: 18,
+              fontWeight: medium,
+              letterSpacing: 6,
+            ),
+          ),
+          const SizedBox(
+            height: 21,
+          ),
+          Text(
+            'Balance',
+            style: whiteTextStyle,
+          ),
+          Text(
+            'Rp 12.500',
+            style: whiteTextStyle.copyWith(
+              fontSize: 24,
+              fontWeight: semiBold,
+            ),
           ),
         ],
       ),

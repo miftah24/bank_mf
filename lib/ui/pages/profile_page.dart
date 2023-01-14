@@ -3,6 +3,7 @@ import 'package:bank_mf/ui/widgets/buttons.dart';
 import 'package:bank_mf/ui/widgets/profile_menu_item.dart';
 import 'package:flutter/material.dart';
 
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
@@ -79,14 +80,20 @@ class ProfilePage extends StatelessWidget {
             ProfileMenuitem(
               iconUrl: 'assets/ic_edit_profile.png',
               title: 'Edit Profile',
-              onTap: () {
-                Navigator.pushNamed(context, '/pin');
+              onTap: () async {
+                if(await Navigator.pushNamed(context, '/pin') == true){
+                  Navigator.pushNamed(context, '/profile-edit');
+                }
               },
-              ),
+            ),
                ProfileMenuitem(
               iconUrl: 'assets/ic_pin.png',
               title: 'My Pin',
-              onTap: () {},
+              onTap: () async {
+                if(await Navigator.pushNamed(context, '/pin') == true){
+                  Navigator.pushNamed(context, '/profile-edit-pin');
+                }
+              },
               ),
                ProfileMenuitem(
               iconUrl: 'assets/ic_wallet.png',

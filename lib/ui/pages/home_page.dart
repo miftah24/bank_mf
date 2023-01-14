@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
         buildProfile(context),
         buildWalletCard(),
         buildLevel(),
-        buildServices(),
+        buildServices(context),
         buildLatestTransactions(),
         buildSendAgain(),
         buildFriendlyTips(),
@@ -271,7 +271,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget buildServices() {
+  Widget buildServices(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
         top: 30,
@@ -295,12 +295,16 @@ class HomePage extends StatelessWidget {
               HomeServiceItem(
                 iconUrl: 'assets/ic_topup.png', 
                 title: 'Top Up',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/topup');
+                },
               ),
                HomeServiceItem(
                 iconUrl: 'assets/ic_send.png', 
                 title: 'Send',
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, '/transfer');
+                },
               ),
                HomeServiceItem(
                 iconUrl: 'assets/ic_withdraw.png', 
@@ -455,22 +459,22 @@ class HomePage extends StatelessWidget {
               HomeTipsItem(
             imageUrl: 'assets/img_tips1.png',
             title: 'Best tips for using a credit card', 
-            url: 'https://www.google.com',
+            url: 'https://www.google.com/',
           ),
           HomeTipsItem(
             imageUrl: 'assets/img_tips2.png',
             title: 'Spot the good pie of finance model', 
-            url: 'https://www.google.com',
+            url: 'https://www.google.com/',
           ),
           HomeTipsItem(
             imageUrl: 'assets/img_tips3.png',
             title: 'Great hack to get better advices', 
-            url: 'https://www.google.com',
+            url: 'https://www.google.com/',
           ),
           HomeTipsItem(
             imageUrl: 'assets/img_tips4.png',
             title: 'Save more penny buy this instead', 
-            url: 'https://www.google.com',
+            url: 'https://www.google.com/',
           ),
             ],
           )

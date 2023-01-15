@@ -1,4 +1,5 @@
 import 'package:bank_mf/shared/theme.dart';
+import 'package:bank_mf/ui/pages/data_provider_page.dart';
 import 'package:bank_mf/ui/pages/home_page.dart';
 import 'package:bank_mf/ui/pages/onboarding_page.dart';
 import 'package:bank_mf/ui/pages/pin_page.dart';
@@ -15,7 +16,9 @@ import 'package:bank_mf/ui/pages/splash_page.dart';
 import 'package:bank_mf/ui/pages/top_up_amount_page.dart';
 import 'package:bank_mf/ui/pages/top_up_page.dart';
 import 'package:bank_mf/ui/pages/top_up_success.dart';
+import 'package:bank_mf/ui/pages/transfer_amount_page.dart';
 import 'package:bank_mf/ui/pages/transfer_page.dart';
+import 'package:bank_mf/ui/pages/transfer_success_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -60,6 +63,9 @@ class MyApp extends StatelessWidget {
         '/topup-amount':(context) => const TopupAmountPage(),
         '/topup-success':(context) => const TopupSuccessPage(),
         '/transfer':(context) => const TransferPage(),
+        '/transfer-amount':(context) => const TransferAmountPage(),
+        '/transfer-success':(context) => const TransferSuccessPage(),
+        '/data-provider':(context) => const DataProviderPage(),
 
       },
     );

@@ -43,57 +43,60 @@ class HomePage extends StatelessWidget {
                 'assets/ic_overview.png',
                 width: 20,
                 color: blueColor,
-                ), 
-                label: 'Overview',
               ),
-              BottomNavigationBarItem(
+              label: 'Overview',
+            ),
+            BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/ic_history.png',
                 width: 20,
-                ), 
-                label: 'History',
-              ),BottomNavigationBarItem(
+              ),
+              label: 'History',
+            ),
+            BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/ic_statistic.png',
                 width: 20,
-                ), 
-                label: 'Statistic',
-              ),BottomNavigationBarItem(
+              ),
+              label: 'Statistic',
+            ),
+            BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/ic_reward.png',
                 width: 20,
-                ), 
-                label: 'Reward',
               ),
+              label: 'Reward',
+            ),
           ],
-          ),
+        ),
       ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          backgroundColor: purpleColor,
-          child: Image.asset(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: purpleColor,
+        child: Image.asset(
           'assets/ic_plus_circle.png',
           width: 24,
-          ),
-          ),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    body: ListView(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 24,
+        ),
       ),
-      children: [
-        buildProfile(context),
-        buildWalletCard(),
-        buildLevel(),
-        buildServices(context),
-        buildLatestTransactions(),
-        buildSendAgain(),
-        buildFriendlyTips(),
-       ],
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: ListView(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 24,
+        ),
+        children: [
+          buildProfile(context),
+          buildWalletCard(),
+          buildLevel(),
+          buildServices(context),
+          buildLatestTransactions(),
+          buildSendAgain(),
+          buildFriendlyTips(),
+        ],
       ),
     );
   }
-  Widget buildProfile(BuildContext context){
+
+  Widget buildProfile(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(
         top: 40,
@@ -106,20 +109,20 @@ class HomePage extends StatelessWidget {
             children: [
               Text(
                 'Howdy,',
-              style: greyTextStyle.copyWith(
-                fontSize: 16,
+                style: greyTextStyle.copyWith(
+                  fontSize: 16,
+                ),
               ),
-            ),
               const SizedBox(
                 height: 2,
               ),
               Text(
                 'shaynahan',
-              style: blackTextStyle.copyWith(
-                fontSize: 20,
-                fontWeight: semiBold,
+                style: blackTextStyle.copyWith(
+                  fontSize: 20,
+                  fontWeight: semiBold,
+                ),
               ),
-            ),
             ],
           ),
           GestureDetector(
@@ -134,8 +137,8 @@ class HomePage extends StatelessWidget {
                 image: DecorationImage(
                   image: AssetImage(
                     'assets/img_profile.png',
-                    ),
                   ),
+                ),
               ),
               child: Align(
                 alignment: Alignment.topRight,
@@ -161,7 +164,7 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget buildWalletCard() {
     return Container(
       width: double.infinity,
@@ -169,14 +172,14 @@ class HomePage extends StatelessWidget {
       margin: const EdgeInsets.only(
         top: 30,
       ),
-      padding:  const EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(28),
         image: const DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(
             'assets/img_bg_card.png',
-            ),
+          ),
         ),
       ),
       child: Column(
@@ -221,7 +224,7 @@ class HomePage extends StatelessWidget {
 
   Widget buildLevel() {
     return Container(
-      margin:  const EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: 20,
       ),
       padding: const EdgeInsets.all(22),
@@ -293,28 +296,33 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               HomeServiceItem(
-                iconUrl: 'assets/ic_topup.png', 
+                iconUrl: 'assets/ic_topup.png',
                 title: 'Top Up',
                 onTap: () {
                   Navigator.pushNamed(context, '/topup');
                 },
               ),
-               HomeServiceItem(
-                iconUrl: 'assets/ic_send.png', 
+              HomeServiceItem(
+                iconUrl: 'assets/ic_send.png',
                 title: 'Send',
                 onTap: () {
                   Navigator.pushNamed(context, '/transfer');
                 },
               ),
-               HomeServiceItem(
-                iconUrl: 'assets/ic_withdraw.png', 
+              HomeServiceItem(
+                iconUrl: 'assets/ic_withdraw.png',
                 title: 'Withdraw',
                 onTap: () {},
               ),
-               HomeServiceItem(
-                iconUrl: 'assets/ic_more.png', 
+              HomeServiceItem(
+                iconUrl: 'assets/ic_more.png',
                 title: 'More',
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => const MoreDialog(),
+                  );
+                },
               ),
             ],
           )
@@ -350,33 +358,33 @@ class HomePage extends StatelessWidget {
             child: Column(
               children: [
                 HomeLatestTransactionsItem(
-                  iconUrl: 'assets/ic_transaction_cat1.png', 
-                  title: 'Top Up', 
-                  time: 'Yesterday', 
+                  iconUrl: 'assets/ic_transaction_cat1.png',
+                  title: 'Top Up',
+                  time: 'Yesterday',
                   value: '+ 450.000',
                 ),
                 HomeLatestTransactionsItem(
-                  iconUrl: 'assets/ic_transaction_cat2.png', 
-                  title: 'Cashback', 
-                  time: 'Sep 11', 
+                  iconUrl: 'assets/ic_transaction_cat2.png',
+                  title: 'Cashback',
+                  time: 'Sep 11',
                   value: '+ 22.000',
                 ),
                 HomeLatestTransactionsItem(
-                  iconUrl: 'assets/ic_transaction_cat3.png', 
-                  title: 'Withdraw', 
-                  time: 'Sep 2', 
+                  iconUrl: 'assets/ic_transaction_cat3.png',
+                  title: 'Withdraw',
+                  time: 'Sep 2',
                   value: '- 5.000',
                 ),
                 HomeLatestTransactionsItem(
-                  iconUrl: 'assets/ic_transaction_cat4.png', 
-                  title: 'Transfer', 
-                  time: 'Aug 27', 
+                  iconUrl: 'assets/ic_transaction_cat4.png',
+                  title: 'Transfer',
+                  time: 'Aug 27',
                   value: '- 123.500',
                 ),
                 HomeLatestTransactionsItem(
-                  iconUrl: 'assets/ic_transaction_cat5.png', 
-                  title: 'Electric', 
-                  time: 'Feb 18', 
+                  iconUrl: 'assets/ic_transaction_cat5.png',
+                  title: 'Electric',
+                  time: 'Feb 18',
                   value: '- 12.300.000',
                 ),
               ],
@@ -410,19 +418,19 @@ class HomePage extends StatelessWidget {
             child: Row(
               children: const [
                 HomeUserItem(
-                  imageUrl: 'assets/img_friend1.png', 
+                  imageUrl: 'assets/img_friend1.png',
                   username: 'yuanita',
                 ),
                 HomeUserItem(
-                  imageUrl: 'assets/img_friend2.png', 
+                  imageUrl: 'assets/img_friend2.png',
                   username: 'jani',
                 ),
                 HomeUserItem(
-                  imageUrl: 'assets/img_friend3.png', 
+                  imageUrl: 'assets/img_friend3.png',
                   username: 'urip',
                 ),
                 HomeUserItem(
-                  imageUrl: 'assets/img_friend4.png', 
+                  imageUrl: 'assets/img_friend4.png',
                   username: 'masa',
                 ),
               ],
@@ -457,28 +465,103 @@ class HomePage extends StatelessWidget {
             runSpacing: 18,
             children: const [
               HomeTipsItem(
-            imageUrl: 'assets/img_tips1.png',
-            title: 'Best tips for using a credit card', 
-            url: 'https://www.google.com/',
-          ),
-          HomeTipsItem(
-            imageUrl: 'assets/img_tips2.png',
-            title: 'Spot the good pie of finance model', 
-            url: 'https://www.google.com/',
-          ),
-          HomeTipsItem(
-            imageUrl: 'assets/img_tips3.png',
-            title: 'Great hack to get better advices', 
-            url: 'https://www.google.com/',
-          ),
-          HomeTipsItem(
-            imageUrl: 'assets/img_tips4.png',
-            title: 'Save more penny buy this instead', 
-            url: 'https://www.google.com/',
-          ),
+                imageUrl: 'assets/img_tips1.png',
+                title: 'Best tips for using a credit card',
+                url: 'https://www.google.com/',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips2.png',
+                title: 'Spot the good pie of finance model',
+                url: 'https://www.google.com/',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips3.png',
+                title: 'Great hack to get better advices',
+                url: 'https://www.google.com/',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/img_tips4.png',
+                title: 'Save more penny buy this instead',
+                url: 'https://www.google.com/',
+              ),
             ],
           )
         ],
+      ),
+    );
+  }
+}
+
+class MoreDialog extends StatelessWidget {
+  const MoreDialog({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.zero,
+      alignment: Alignment.bottomCenter,
+      content: Container(
+        height: 326,
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(30),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: lightBackgroundColor,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Do More With Us',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: semiBold,
+              ),
+            ),
+            const SizedBox(
+              height: 13,
+            ),
+            Wrap(
+              spacing: 29,
+              runSpacing: 25,
+              children: [
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_data.png',
+                  title: 'Data',
+                  onTap: () {
+                    Navigator.pushNamed(context, '/data-provider');
+                  },
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_water.png',
+                  title: 'Water',
+                  onTap: () {},
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_stream.png',
+                  title: 'Stream',
+                  onTap: () {},
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_movie.png',
+                  title: 'Movie',
+                  onTap: () {},
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_food.png',
+                  title: 'Food',
+                  onTap: () {},
+                ),
+                HomeServiceItem(
+                  iconUrl: 'assets/ic_product_travel.png',
+                  title: 'Travel',
+                  onTap: () {},
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

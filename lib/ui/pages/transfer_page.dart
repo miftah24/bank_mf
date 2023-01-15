@@ -129,7 +129,7 @@ class TransferPage extends StatelessWidget {
                 isSelected: true,
               ),
             ],
-          )
+          ),
         ],
       ),
     );
